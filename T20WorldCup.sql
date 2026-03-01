@@ -1,3 +1,8 @@
+-- Submitted By: Rameen Muzammil Ejaz 
+-- Reg #: (FA24-BSE-160)
+-- Section: A
+
+
 CREATE DATABASE T20worldcup2026;
 USE T20worldcup2026;
 
@@ -65,3 +70,34 @@ SELECT teamName FROM teamDetails;
 SELECT * FROM playersDetail;
 
 --Question 3
+SELECT teamName, lastWorldCupStanding FROM teamDetails;
+
+--Question 4:
+SELECT teamName, lastWorldCupWinner FROM teamDetails WHERE lastWorldCupWinner=1;
+
+--Questions 5:
+SELECT t.teamName, p.playerName FROM playersDetail p JOIN teamDetails t ON p.teamID=t.teamID WHERE p.jerseyNo=99; 
+
+--Question 6:
+SELECT t.teamName, p.playerName FROM playersDetail p JOIN teamDetails t ON p.playerName=t.teamName WHERE p.playerName='Farhan';
+
+--Question 7:
+SELECT p.playerName, t.* FROM playersDetail p JOIN teamDetails t ON p.teamID = t.teamID WHERE p.playerName='Shaheen';
+
+--Question 8:
+SELECT COUNT(*) AS TotalWicketPlayers FROM playersDetail p JOIN teamDetails t ON p.teamID=t.teamID WHERE t.teamName='Pakistan' AND p.speciality='Wicketkeeper';
+
+--Question 9:
+SELECT p.playerName, t.* FROM playersDetail p JOIN teamDetails t ON p.teamID=t.teamID WHERE p.speciality='Opener';
+
+--Question 10:
+SELECT p.playerName, t.* FROM playersDetail p JOIN teamDetails t ON p.teamID=t.teamID WHERE p.speciality='All rounder';
+
+--Question 11:
+SELECT p.playerName, t.teamName FROM playersDetail p JOIN teamDetails t ON p.teamID=t.teamID WHERE p.battingStyle='leg break';
+
+--Question 12:
+SELECT p.playerName, t.teamName FROM playersDetail p JOIN teamDetails t ON p.teamID=t.teamID WHERE p.bowlingStyle='Off spin';
+
+--Question 13:
+SELECT p.playerName, t.teamName FROM playersDetail p JOIN teamDetails t ON p.teamId=t.teamID WHERE p.battingStyle='Lead-hand bat';
