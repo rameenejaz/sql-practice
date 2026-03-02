@@ -1,6 +1,4 @@
--- Submitted By: Rameen Muzammil Ejaz 
--- Reg #: (FA24-BSE-160)
--- Section: A
+
 
 
 CREATE DATABASE FanStore;
