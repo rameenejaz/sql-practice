@@ -35,6 +35,5 @@ INSERT INTO Staff (staffNo, fName, lName, position, Gender, DOB, salary, branchN
 ('SA9',  'Mary', 'Howe', 'Assistant', 'F', '1970-02-19', 9000,  'B007'),
 ('SG5',  'Susan', 'Brand', 'Manager', 'F', '1940-06-03', 24000, 'B003'),
 ('SL41', 'Julie', 'Lee', 'Assistant', 'F', '1965-01-13', 9000,  'B005');
-
 Select * FROM Branch;
 SELECT * FROM Staff;
