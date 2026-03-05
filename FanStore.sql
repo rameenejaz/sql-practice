@@ -1,6 +1,4 @@
 
-
-
 CREATE DATABASE FanStore;
 USE FanStore;
 CREATE TABLE Companies (
