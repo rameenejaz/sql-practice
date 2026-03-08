@@ -178,8 +178,59 @@ WHERE branchNo IN ('B003','B005');
 
 --Task 2:
 --Question 1: Show properties that are owned by the owner "CO87".
-SELECT * FROM propertyForRent 
+SELECT * FROM propertyForRent WHERE ownerNo='CO87';
+
+--Question 2: Display the Properties address that were registered by staff number "SG37".
+SELECT street, city, postCode FROM propertyForRent WHERE staffNo='SG37'
+
+--Question 3: Can you display number of room against each flat.
+SELECT propertyNo, rooms FROM propertyForRent WHERE type='Flat'
+
+--Question 4: Is there any properties having rent less than 500.
+SELECT propertyNo, street, city, rent FROM propertyForRent WHERE rent<500;
+
+--Question 5: Can you display the client name, number and email of those clients whose choice is flat.
+SELECT clientNo, fName, lName, eMail, prefType FROM client WHERE prefType='Flat'
+
+--Question 6:Details of owners in ascending order by their name.
+SELECT * FROM privateOwner ORDER BY fname ASC
+
+--Question 7: How many properties are viewed.
+SELECT COUNT (propertyNo) AS totalPropertiesViewed FROM viewing;
+
+--Question 8: Detail of registration table.
+SELECT * FROM registration;
+
+--Question 9: Display the total number of staff in this system.   
+SELECT COUNT (staffNo) AS totalStaffMembers FROM staff;
+
+--Question 10: Detail of staff members who born after 1960.
+SELECT * FROM staff WHERE DOB>'31-Dec-1960' ;
+
+--Question 11: Change branch "B005" from London to Bristol.
+UPDATE branch SET city='Bristol' WHERE branchNo='B005'
+
+--Question 12: Change "B005" from Bristol to London.
+UPDATE branch SET city='London' WHERE branchNo='B005'
+
+--Question 13: Name of those properties that are not handled by any staff member.
+SELECT propertyNo, street, city FROM propertyForRent WHERE staffNo IS NULL;
+
+--Question 14: Name of those owner name whose name starts with character " J".
+SELECT fName, lName FROM privateOwner WHERE fName LIKE 'J%'
+
+--Question 15: Is there property number that is viewed by client but not give any comment.
+SELECT clientNo, propertyNo,viewDate, comment FROM viewing WHERE comment IS NULL;
+
+--Question 16: Can you display the number of employees in each branch. 
+SELECT branchNo, COUNT (*) AS totalEmployees FROM staff GROUP BY branchNo;
 
 
 
 
+--Task 3: 
+--Question 1: Show the average salary of all employees.
+SELECT AVG(salary) AS averageSalary FROM staff
+
+--Question 2: Show the average salary of employees from branch B005.
+SELECT fName, lName, branchNo, AVG(salary) AS averageSalary FROM staff WHERE branchNo='B005'
