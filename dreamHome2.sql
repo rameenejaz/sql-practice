@@ -233,4 +233,28 @@ SELECT branchNo, COUNT (*) AS totalEmployees FROM staff GROUP BY branchNo;
 SELECT AVG(salary) AS averageSalary FROM staff
 
 --Question 2: Show the average salary of employees from branch B005.
-SELECT fName, lName, branchNo, AVG(salary) AS averageSalary FROM staff WHERE branchNo='B005'
+SELECT AVG(salary) AS averageSalary FROM staff WHERE branchNo='B005'
+
+--Question 3:  Show the average salary of all managers from all branches.
+SELECT AVG(salary) AS averageSalaryManager FROM staff WHERE position='Manager'
+
+--Question 4: Show the name and designation of employee who is drawing the top most salary.
+SELECT TOP 1 fName, lName, position, salary FROM staff ORDER BY salary DESC
+
+--Question 5: Show the name of a supervisor who is drawing top most salary.
+SELECT TOP 1 fName, lName, position,salary FROM staff WHERE position='supervisor' ORDER BY salary DESC
+
+--Question 6: Show the name and branch number of an employee who is drawing least salary of all.
+SELECT TOP 1 fName, lName, position, salary FROM staff ORDER BY salary ASC
+
+--Question 7: Show the name, designation and branch number of a manager, who is drawing least salary from all managers.
+SELECT TOP 1 fName, lName, position, branchNo, salary FROM staff WHERE position='manager' ORDER BY salary ASC
+
+--Question 8: How many supervisors are in the system and their total salary.
+SELECT COUNT (*) AS totalSupervisors, SUM(salary) AS totalSalary FROM staff WHERE position='Supervisor'
+
+--Question 9: List of supervisors from the branch number B005 and B003
+SELECT fName, lName, staffNo, position, branchNo, salary FROM staff WHERE position='supervisor' AND branchNo IN ('B005','B003')
+
+--Question 10: Show the total budget of salary.
+SELECT SUM(salary) AS totalBudgetSalary FROM staff
